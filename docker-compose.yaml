@@ -9,7 +9,7 @@ services:
       #   GA_ID: ""
       #   APP_DOMAIN: ""
       #   OPENSEARCH_ENABLED: "false"
-      #   TMDB_READ_API_KEY: ""
+      #   TMDB_READ_API_KEY: "4346ecfd3824ca966f6d0cd0e94b0f10"
       #   CORS_PROXY_URL: ""
       #   DMCA_EMAIL: ""
       #   NORMAL_ROUTER: "false"
