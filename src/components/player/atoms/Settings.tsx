@@ -18,7 +18,7 @@ import { usePlayerStore } from "@/stores/player/store";
 import { AudioView } from "./settings/AudioView";
 import { CaptionSettingsView } from "./settings/CaptionSettingsView";
 import { CaptionsView } from "./settings/CaptionsView";
-import { DownloadRoutes } from "./settings/Downloads";
+
 import { LanguageSubtitlesView } from "./settings/LanguageSubtitlesView";
 import { PlaybackSettingsView } from "./settings/PlaybackSettingsView";
 import { AdvancedColorView } from "./settings/AdvancedColorView";
@@ -28,7 +28,6 @@ import { SkipSegmentsView } from "./settings/SkipSegmentsView";
 import { TranscriptView } from "./settings/TranscriptView";
 import { TranslateSubtitleView } from "./settings/TranslateSubtitleView";
 import { WatchPartyView } from "./settings/WatchPartyView";
-import { VariantView } from "./settings/VariantView";
 
 function SettingsOverlay({ id }: { id: string }) {
   const [chosenSourceId, setChosenSourceId] = useState<string | null>(null);
@@ -195,12 +194,6 @@ function SettingsOverlay({ id }: { id: string }) {
             {captionToTranslate && (
               <TranslateSubtitleView id={id} caption={captionToTranslate} />
             )}
-          </Menu.CardWithScrollable>
-        </OverlayPage>
-        <DownloadRoutes id={id} />
-        <OverlayPage id={id} path="/variant" width={343} height={496}>
-          <Menu.CardWithScrollable>
-            <VariantView id={id} />
           </Menu.CardWithScrollable>
         </OverlayPage>
         <OverlayPage id={id} path="/watchparty" width={343} height={496}>

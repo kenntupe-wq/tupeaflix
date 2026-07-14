@@ -1,7 +1,6 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 
-import { getArtemisVariantMeta, getVariantMeta } from "@/sdk";
 import { getCachedMetadata } from "@/backend/helpers/providerApi";
 import { Toggle } from "@/components/buttons/Toggle";
 import { Icon, Icons } from "@/components/Icon";
@@ -75,14 +74,6 @@ export function SettingsMenu({ id }: { id: string }) {
     startAirplay();
   };
 
-  const variantMeta =
-    currentSourceId === "aurora"
-      ? getVariantMeta()
-      : currentSourceId === "artemis"
-        ? getArtemisVariantMeta()
-        : null;
-  const hasVariants = (variantMeta?.variants?.length ?? 0) > 1;
-
   return (
     <Menu.Card>
       <Menu.Section grid>
@@ -147,16 +138,6 @@ export function SettingsMenu({ id }: { id: string }) {
         <Menu.Link
           clickable
           onClick={() =>
-            router.navigate(downloadable ? "/download" : "/download/unable")
-          }
-          rightSide={<Icon className="text-xl" icon={Icons.DOWNLOAD} />}
-          className={downloadable ? "opacity-100" : "opacity-50"}
-        >
-          {t("player.menus.settings.downloadItem")}
-        </Menu.Link>
-        <Menu.Link
-          clickable
-          onClick={() =>
             router.navigate(downloadable ? "/watchparty" : "/download/unable")
           }
           rightSide={<Icon className="text-xl" icon={Icons.WATCH_PARTY} />}
@@ -182,16 +163,6 @@ export function SettingsMenu({ id }: { id: string }) {
           </Menu.Link>
         ) : null}
       </Menu.Section>
-      {hasVariants ? (
-        <Menu.Section>
-          <Menu.ChevronLink
-            onClick={() => router.navigate("/variant")}
-            rightText={`${variantMeta!.variants!.length}`}
-          >
-            Stream Variants
-          </Menu.ChevronLink>
-        </Menu.Section>
-      ) : null}
       <Menu.Section>
         <Menu.Link
           rightSide={

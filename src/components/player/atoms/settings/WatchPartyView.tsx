@@ -16,7 +16,7 @@ import { useAuthStore } from "@/stores/auth";
 import { getProgressPercentage } from "@/stores/progress";
 import { useWatchPartyStore } from "@/stores/watchParty";
 
-import { useDownloadLink } from "./Downloads";
+import { useDownloadLink } from "./sourceUrl";
 
 export function WatchPartyView({ id }: { id: string }) {
   const router = useOverlayRouter(id);
